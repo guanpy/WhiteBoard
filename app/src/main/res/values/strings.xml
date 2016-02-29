@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">WhiteBoard</string>
+
+    <!--白板-->
+    <string name="white_board_name">白板工具</string>
+    <string name="white_board_export">导出</string>
+    <string name="white_board_save">保存</string>
+    <string name="white_board_pen">画笔设置</string>
+    <string name="white_board_text">文本设置</string>
+    <string name="white_board_text_hint">双击修改</string>
+    <string name="white_board_eraser">橡皮擦</string>
+    <string name="white_board_eraser_clear">全部清除</string>
+    <string name="white_board_export_tip">导出成功，该页已保存图片至</string>
+    <string name="white_board_export_fail">导出失败，请稍后重试！</string>
+    <string name="white_board_save_sucess">保存成功！</string>
+</resources>

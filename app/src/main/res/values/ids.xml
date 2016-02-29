@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="tag_loader"/>
+    <item type="id" name="tag_nodata"/>
+    <item type="id" name="tag_holder"/>
+    <item type="id" name="tag_other"/>
+
+    <item type="id" name="fab_expand_menu_button"/>
+    <item type="id" name="fab_label"/>
+
+    <item type="id" name="ex_tag_holder"/>
+</resources>

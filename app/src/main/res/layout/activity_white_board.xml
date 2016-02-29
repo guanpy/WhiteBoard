@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/iv_white_board_book"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/cover" />
+
+    </FrameLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rl_head"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp">
+
+        <ImageView
+            android:id="@+id/iv_white_board_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:clickable="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_back_selector" />
+
+        <ImageView
+            android:id="@+id/iv_white_board_quit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:clickable="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/common_cancel_selector"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_white_board_head"
+            style="@style/HeaderTextView"
+            android:layout_centerInParent="true"
+            android:text="@string/white_board_name" />
+
+        <ImageView
+            android:id="@+id/iv_white_board_confirm"
+            android:layout_width="30dip"
+            android:layout_height="30dip"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:clickable="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/common_confirm_selector"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="60dp">
+
+            <ImageView
+                android:id="@+id/iv_white_board_export"
+                android:layout_width="30dip"
+                android:layout_height="30dip"
+                android:layout_gravity="center_vertical"
+                android:clickable="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/white_board_save_selector" />
+
+            <ImageView
+                android:id="@+id/iv_white_board_save"
+                android:layout_width="30dip"
+                android:layout_height="30dip"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="30dp"
+                android:clickable="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/white_board_export_selector" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rl_head"
+        android:layout_marginBottom="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp">
+        <ScrollView
+            android:id="@+id/sv_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:fadingEdge="none"
+            android:scrollbars="none"
+            >
+        <FrameLayout
+            android:id="@+id/fl_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_white_board"
+            >
+
+            <com.example.gpy.whiteboard.view.widget.DrawPenView
+                android:id="@+id/db_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                 />
+
+            <com.example.gpy.whiteboard.view.widget.DrawTextLayout
+                android:id="@+id/dt_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
+        </FrameLayout>
+        </ScrollView>
+        <RelativeLayout
+            android:id="@+id/rl_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <View
+                android:id="@+id/v_bottom_back"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                android:background="@color/transparent" />
+
+            <com.example.gpy.whiteboard.view.widget.floatingactionmenu.FloatingActionsMenu
+                android:id="@+id/fab_menu_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="16dp"
+                fab:fab_addButtonBackground="@drawable/white_board_pen_selector"
+                fab:fab_addButtonHeight="44dip"
+                fab:fab_addButtonStyle="customStyle"
+                fab:fab_addButtonWidth="44dip"
+                fab:fab_buttonSpacing="12dp"
+                fab:fab_expandDirection="up"
+                fab:fab_labelStyle="@style/menu_labels_style">
+
+                <com.example.gpy.whiteboard.view.widget.floatingactionmenu.FloatingImageButton
+                    android:id="@+id/bt_size_large"
+                    android:layout_width="44dip"
+                    android:layout_height="44dip"
+                    android:background="@drawable/white_board_drable_back_normal" />
+
+
+                <com.example.gpy.whiteboard.view.widget.floatingactionmenu.FloatingImageButton
+                    android:id="@+id/bt_size_middle"
+                    android:layout_width="44dip"
+                    android:layout_height="44dip"
+                    android:background="@drawable/white_board_drable_back_normal" />
+
+                <com.example.gpy.whiteboard.view.widget.floatingactionmenu.FloatingImageButton
+                    android:id="@+id/bt_size_mini"
+                    android:layout_width="44dip"
+                    android:layout_height="44dip"
+                    android:background="@drawable/white_board_drable_back_normal" />
+
+            </com.example.gpy.whiteboard.view.widget.floatingactionmenu.FloatingActionsMenu>
+
+            <com.example.gpy.whiteboard.view.widget.floatingactionmenu.FloatingActionsMenu
+                android:id="@+id/fab_menu_color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="12dp"
+                android:layout_toRightOf="@+id/fab_menu_size"
+                fab:fab_addButtonBackground="@drawable/white_board_color_black_selector"
+                fab:fab_addButtonHeight="44dip"
+                fab:fab_addButtonStyle="customStyle"
+                fab:fab_addButtonWidth="44dip"
+                fab:fab_buttonSpacing="12dp"
+                fab:fab_expandDirection="up"
+                fab:fab_labelStyle="@style/menu_labels_style">
+
+
+                <com.example.gpy.whiteboard.view.widget.floatingactionmenu.FloatingImageButton
+                    android:id="@+id/bt_color_green"
+                    android:layout_width="44dip"
+                    android:layout_height="44dip"
+                    android:background="@drawable/white_board_color_green_selector" />
+
+                <com.example.gpy.whiteboard.view.widget.floatingactionmenu.FloatingImageButton
+                    android:id="@+id/bt_color_purple"
+                    android:layout_width="44dip"
+                    android:layout_height="44dip"
+                    android:background="@drawable/white_board_color_purple_selector" />
+
+                <com.example.gpy.whiteboard.view.widget.floatingactionmenu.FloatingImageButton
+                    android:id="@+id/bt_color_pink"
+                    android:layout_width="44dip"
+                    android:layout_height="44dip"
+                    android:background="@drawable/white_board_color_pink_selector" />
+
+                <com.example.gpy.whiteboard.view.widget.floatingactionmenu.FloatingImageButton
+                    android:id="@+id/bt_color_orange"
+                    android:layout_width="44dip"
+                    android:layout_height="44dip"
+                    android:background="@drawable/white_board_color_orange_selector" />
+
+                <com.example.gpy.whiteboard.view.widget.floatingactionmenu.FloatingImageButton
+                    android:id="@+id/bt_color_black"
+                    android:layout_width="44dip"
+                    android:layout_height="44dip"
+                    android:background="@drawable/white_board_color_black_selector" />
+
+            </com.example.gpy.whiteboard.view.widget.floatingactionmenu.FloatingActionsMenu>
+
+            <com.example.gpy.whiteboard.view.widget.floatingactionmenu.FloatingActionsMenu
+                android:id="@+id/fab_menu_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="12dp"
+                android:layout_toRightOf="@+id/fab_menu_color"
+                fab:fab_addButtonBackground="@drawable/white_board_text_selector"
+                fab:fab_addButtonHeight="44dip"
+                fab:fab_addButtonStyle="customStyle"
+                fab:fab_addButtonWidth="44dip"
+                fab:fab_buttonSpacing="12dp"
+                fab:fab_expandDirection="up"
+                fab:fab_labelStyle="@style/menu_labels_style">
+
+                <com.example.gpy.whiteboard.view.widget.floatingactionmenu.FloatingImageButton
+                    android:id="@+id/bt_text_underline"
+                    android:layout_width="44dip"
+                    android:layout_height="44dip"
+                    android:background="@drawable/white_board_text_underline_selector" />
+
+
+                <com.example.gpy.whiteboard.view.widget.floatingactionmenu.FloatingImageButton
+                    android:id="@+id/bt_text_italics"
+                    android:layout_width="44dip"
+                    android:layout_height="44dip"
+                    android:background="@drawable/white_board_text_italics_selector"
+                    android:visibility="gone" />
+
+                <com.example.gpy.whiteboard.view.widget.floatingactionmenu.FloatingImageButton
+                    android:id="@+id/bt_text_bold"
+                    android:layout_width="44dip"
+                    android:layout_height="44dip"
+                    android:background="@drawable/white_board_text_bold_selector" />
+
+            </com.example.gpy.whiteboard.view.widget.floatingactionmenu.FloatingActionsMenu>
+
+            <com.example.gpy.whiteboard.view.widget.floatingactionmenu.FloatingActionsMenu
+                android:id="@+id/fab_menu_eraser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="12dp"
+                android:layout_toRightOf="@+id/fab_menu_text"
+                fab:fab_addButtonBackground="@drawable/white_board_eraser_selector"
+                fab:fab_addButtonHeight="44dip"
+                fab:fab_addButtonStyle="customStyle"
+                fab:fab_addButtonWidth="44dip"
+                fab:fab_buttonSpacing="12dp"
+                fab:fab_expandDirection="up"
+                fab:fab_labelStyle="@style/menu_labels_style">
+
+
+                <com.example.gpy.whiteboard.view.widget.floatingactionmenu.FloatingImageButton
+                    android:id="@+id/bt_eraser_large"
+                    android:layout_width="44dip"
+                    android:layout_height="44dip"
+                    android:background="@drawable/white_board_drable_back_normal" />
+
+
+                <com.example.gpy.whiteboard.view.widget.floatingactionmenu.FloatingImageButton
+                    android:id="@+id/bt_eraser_middle"
+                    android:layout_width="44dip"
+                    android:layout_height="44dip"
+                    android:background="@drawable/white_board_drable_back_normal" />
+
+                <com.example.gpy.whiteboard.view.widget.floatingactionmenu.FloatingImageButton
+                    android:id="@+id/bt_eraser_mini"
+                    android:layout_width="44dip"
+                    android:layout_height="44dip"
+                    android:background="@drawable/white_board_drable_back_normal" />
+
+            </com.example.gpy.whiteboard.view.widget.floatingactionmenu.FloatingActionsMenu>
+
+
+            <ImageView
+                android:id="@+id/iv_white_board_undo"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="center_vertical"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="12dp"
+                android:layout_toRightOf="@+id/fab_menu_eraser"
+                android:clickable="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/white_board_undo_selector" />
+
+            <ImageView
+                android:id="@+id/iv_white_board_redo"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="center_vertical"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="12dp"
+                android:layout_toRightOf="@+id/iv_white_board_undo"
+                android:clickable="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/white_board_redo_selector" />
+
+            <LinearLayout
+                android:id="@+id/ll_white_board_page"
+                android:layout_width="wrap_content"
+                android:layout_height="44dip"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_toLeftOf="@+id/iv_white_board_add"
+                android:background="@drawable/white_board_page_back"
+                android:orientation="horizontal">
+            <LinearLayout
+                android:id="@+id/ll_white_board_pre"
+                android:layout_width="wrap_content"
+                android:layout_height="44dip"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/iv_white_board_pre"
+                    android:layout_width="7dp"
+                    android:layout_height="14dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="16dip"
+                    android:layout_marginRight="10dip"
+                    android:clickable="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/white_board_pre_page_selector" />
+            </LinearLayout>
+                <TextView
+                    android:id="@+id/tv_white_board_page"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dip"
+                    android:layout_marginRight="10dip"
+                    android:text="1/3"
+                    android:textColor="@color/primary_black" />
+            <LinearLayout
+                android:id="@+id/ll_white_board_next"
+                android:layout_width="wrap_content"
+                android:layout_height="44dip"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/iv_white_board_next"
+                    android:layout_width="7dp"
+                    android:layout_height="14dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dip"
+                    android:layout_marginRight="16dip"
+                    android:clickable="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/white_board_next_page_selector" />
+            </LinearLayout>
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/iv_white_board_add"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="center_vertical"
+                android:layout_marginBottom="16dp"
+                android:layout_marginRight="76dp"
+                android:layout_alignParentRight="true"
+
+                android:clickable="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/white_board_add_selector" />
+
+
+        </RelativeLayout>
+        <ImageView
+            android:id="@+id/iv_white_board_disable"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="16dp"
+            android:layout_marginRight="16dp"
+            android:clickable="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/white_board_disable_selector" />
+    </RelativeLayout>
+
+</RelativeLayout>
