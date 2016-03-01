@@ -7,7 +7,7 @@ import com.example.gpy.whiteboard.utils.AppContextUtil;
 import com.example.gpy.whiteboard.utils.SdCardStatus;
 
 /**
- * Created by gpy on 2016/2/17.
+ * Created by gpy on 2015/8/17.
  */
 public class SelfApplication extends Application{
 
