@@ -17,7 +17,7 @@ import com.example.gpy.whiteboard.bean.DrawPenPoint;
 import com.example.gpy.whiteboard.bean.DrawPenStr;
 import com.example.gpy.whiteboard.bean.DrawPoint;
 import com.example.gpy.whiteboard.bean.Point;
-import com.example.gpy.whiteboard.eventbus.EventBus;
+import com.github.guanpy.library.EventBus;
 import com.example.gpy.whiteboard.utils.OperationUtils;
 
 import java.util.Iterator;
@@ -109,14 +109,14 @@ public class DrawPenView extends View {
         postInvalidate();
     }
     /**
-     * 修改画笔颜色
+     * 修改橡皮擦尺寸
      */
     public void setEraserSize() {
         mPaint.setStrokeWidth(2 * OperationUtils.getInstance().mCurrentEraserSize);//size为圆半径
         postInvalidate();
     }
     /**
-     * 修改画笔颜色
+     * 修改画笔尺寸
      */
     public void setPenSize() {
         mPaint.setStrokeWidth(2 * OperationUtils.getInstance().mCurrentPenSize);//size为圆半径

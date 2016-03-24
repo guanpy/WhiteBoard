@@ -24,6 +24,7 @@ import android.widget.TextView;
 
 import com.example.gpy.whiteboard.R;
 import com.example.gpy.whiteboard.utils.AppContextUtil;
+import com.example.gpy.whiteboard.utils.WhiteBoardVariable;
 
 public class FloatingActionsMenu extends ViewGroup {
     public static final int STYLE_DEFAULT = 0;
@@ -100,9 +101,14 @@ public class FloatingActionsMenu extends ViewGroup {
     public void  setOnFloatingActionsMenuClickListener(OnFloatingActionsMenuClickListener flLister){
         mClickListener = flLister;
     }
+    /**
+     * 在图片中间画圆环
+     * @param size  圆的半径
+     * @param color  圆的颜色
+     * */
     /**控制按钮外圈*/
     public void drawRing(int color){
-       mAddButton.drawLargeRing(color);
+       mAddButton.drawRing(WhiteBoardVariable.RingSize.LARRGE, color);
     }
     /**
      * 清除绘画

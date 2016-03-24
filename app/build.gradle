@@ -25,4 +25,8 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile'com.squareup.retrofit:converter-jackson:1.9.0'
     compile 'com.jakewharton:butterknife:6.1.0'
+    compile 'com.github.guanpy:eventbus:1.0.0'
+//    compile 'com.diffplug.guava:guava-eventbus:19.0.0'
+//    compile(group: 'com.github.guanpy', name: 'eventbus', version: '0.1.1', ext: 'aar')
+//    compile(group: 'com.github.guanpy', name: 'library', version: '0.1.0', ext: 'aar')
 }

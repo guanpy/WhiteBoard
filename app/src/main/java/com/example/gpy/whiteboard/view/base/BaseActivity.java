@@ -6,7 +6,8 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.widget.Toast;
 
-import com.example.gpy.whiteboard.eventbus.EventBus;
+
+import com.github.guanpy.library.EventBus;
 
 import butterknife.ButterKnife;
 

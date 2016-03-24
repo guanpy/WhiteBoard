@@ -19,7 +19,7 @@ import android.widget.TextView;
 import com.example.gpy.whiteboard.R;
 import com.example.gpy.whiteboard.base.Events;
 import com.example.gpy.whiteboard.bean.DrawPoint;
-import com.example.gpy.whiteboard.eventbus.EventBus;
+import com.github.guanpy.library.EventBus;
 import com.example.gpy.whiteboard.utils.OperationUtils;
 
 
