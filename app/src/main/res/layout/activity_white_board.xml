@@ -119,13 +119,13 @@
             android:background="@drawable/bg_white_board"
             >
 
-            <com.example.gpy.whiteboard.view.widget.DrawPenView
+            <com.github.guanpy.wblib.widget.DrawPenView
                 android:id="@+id/db_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                  />
 
-            <com.example.gpy.whiteboard.view.widget.DrawTextLayout
+            <com.github.guanpy.wblib.widget.DrawTextLayout
                 android:id="@+id/dt_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

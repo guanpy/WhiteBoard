@@ -6,8 +6,8 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.widget.ImageButton;
 
-import com.example.gpy.whiteboard.utils.OperationUtils;
-import com.example.gpy.whiteboard.utils.WhiteBoardVariable;
+import com.github.guanpy.wblib.utils.OperationUtils;
+import com.github.guanpy.wblib.utils.WhiteBoardVariable;
 
 /**
  * FloatingActionButton 不具备的功能

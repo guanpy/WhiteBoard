@@ -6,7 +6,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.widget.Toast;
 
-
 import com.github.guanpy.library.EventBus;
 
 import butterknife.ButterKnife;
@@ -31,7 +30,6 @@ public abstract class BaseActivity extends FragmentActivity {
 
     protected void showMessage(CharSequence msg) {
         Toast.makeText(this,msg,Toast.LENGTH_SHORT).show();
-//        SuperToast.create(this, msg, SuperToast.Duration.SHORT).show();
     }
 
     @Override

@@ -23,8 +23,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.gpy.whiteboard.R;
-import com.example.gpy.whiteboard.utils.AppContextUtil;
-import com.example.gpy.whiteboard.utils.WhiteBoardVariable;
+import com.github.guanpy.wblib.utils.AppContextUtil;
+import com.github.guanpy.wblib.utils.WhiteBoardVariable;
 
 public class FloatingActionsMenu extends ViewGroup {
     public static final int STYLE_DEFAULT = 0;

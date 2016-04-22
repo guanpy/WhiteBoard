@@ -13,4 +13,5 @@
     <string name="white_board_export_tip">导出成功，该页已保存图片至</string>
     <string name="white_board_export_fail">导出失败，请稍后重试！</string>
     <string name="white_board_save_sucess">保存成功！</string>
+    <string name="app_logout">继续按返回键退出</string>
 </resources>

@@ -14,17 +14,19 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.gpy.whiteboard.R;
-import com.example.gpy.whiteboard.base.Events;
-import com.example.gpy.whiteboard.bean.DrawPoint;
-import com.github.guanpy.library.ann.ReceiveEvents;
-import com.example.gpy.whiteboard.utils.OperationUtils;
-import com.example.gpy.whiteboard.utils.WhiteBoardVariable;
+import com.example.gpy.whiteboard.utils.StoreUtil;
+import com.example.gpy.whiteboard.utils.ToastUtils;
 import com.example.gpy.whiteboard.view.base.BaseActivity;
-import com.example.gpy.whiteboard.view.widget.DrawPenView;
-import com.example.gpy.whiteboard.view.widget.DrawTextLayout;
-import com.example.gpy.whiteboard.view.widget.DrawTextView;
 import com.example.gpy.whiteboard.view.widget.floatingactionmenu.FloatingActionsMenu;
 import com.example.gpy.whiteboard.view.widget.floatingactionmenu.FloatingImageButton;
+import com.github.guanpy.library.ann.ReceiveEvents;
+import com.github.guanpy.wblib.bean.DrawPoint;
+import com.github.guanpy.wblib.utils.Events;
+import com.github.guanpy.wblib.utils.OperationUtils;
+import com.github.guanpy.wblib.utils.WhiteBoardVariable;
+import com.github.guanpy.wblib.widget.DrawPenView;
+import com.github.guanpy.wblib.widget.DrawTextLayout;
+import com.github.guanpy.wblib.widget.DrawTextView;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -120,50 +122,14 @@ public class WhiteBoardActivity extends BaseActivity implements View.OnClickList
     LinearLayout mLlWhiteBoardPre;
     @InjectView(R.id.ll_white_board_next)
     LinearLayout mLlWhiteBoardNext;
-//    /**
-//     * 讨论Id
-//     */
-//    @Restore(BundleKey.WHITE_BOARD_DISCUSS_ID)
-    private String mDiscussId ="1111111";
 
+    private long mBackPressedTime;
 
-//    @Restore(BundleKey.KEY_COU_SCHE_ID)
-//    private String couScheId;
-//    @Restore(BundleKey.KEY_COURSE_ID)
-//    private String courseId;
-//    @Restore(BundleKey.KEY_CLS_STU_ID)
-//    private String clsStuId;
-//    @Restore(BundleKey.KEY_KS_ID)
-//    private String ksId;
-//    @Restore(BundleKey.KEY_KS_RES_ID)
-//    private String ksResId;
-//    @Restore(BundleKey.CLS_ID)
-//    private String clsId;
-
-//
-//    private RelativeLayout.LayoutParams mLayoutParams;
-//
-//    public static void start(Context context, String courseId, String ksId, String clsStuId, String courseResId, String couScheId, String clsId, String discussId) {
-//        Intent intent = new Intent(context, WhiteBoardActivity.class);
-//        Bundle mWhiteBoardBundle = new Bundle();
-//        mWhiteBoardBundle.putString(BundleKey.KEY_COURSE_ID, courseId);
-//        mWhiteBoardBundle.putString(BundleKey.KEY_KS_ID, ksId);
-//        mWhiteBoardBundle.putString(BundleKey.KEY_CLS_STU_ID, clsStuId);
-//        mWhiteBoardBundle.putString(BundleKey.KEY_KS_RES_ID, courseResId);
-//        mWhiteBoardBundle.putString(BundleKey.KEY_COU_SCHE_ID, couScheId);
-//        mWhiteBoardBundle.putString(BundleKey.CLS_ID, clsId);
-//        mWhiteBoardBundle.putString(BundleKey.WHITE_BOARD_DISCUSS_ID, discussId);
-//        intent.putExtra(BundleKey.IN_CLASS_SECONDARY_PAGE, true);
-//        intent.putExtras(mWhiteBoardBundle);
-//        if (context instanceof Activity) {
-//            ((Activity) context).startActivityForResult(intent, 0);
-//        }
-//    }
 
 
     @Override
     protected void afterCreate(Bundle bundle) {
-        OperationUtils.getInstance().init(mDiscussId);
+        OperationUtils.getInstance().init();
         initView();
         initEvent();
 
@@ -258,7 +224,7 @@ public class WhiteBoardActivity extends BaseActivity implements View.OnClickList
                 break;
             case R.id.iv_white_board_export://保存白板操作集到本地
                 ToolsOperation(WhiteBoardVariable.Operation.OUTSIDE_CLICK);
-                OperationUtils.getInstance().getInstance().putWhiteBoardPoints(mDiscussId);
+                StoreUtil.saveWhiteBoardPoints();
                 break;
             case R.id.iv_white_board_save://保存白板为图片
                 ToolsOperation(WhiteBoardVariable.Operation.OUTSIDE_CLICK);
@@ -598,7 +564,7 @@ public class WhiteBoardActivity extends BaseActivity implements View.OnClickList
 //        mRlContent.setLayoutParams(mLayoutParams);
         mIvWhiteBoardQuit.setVisibility(View.GONE);
         mIvWhiteBoardConfirm.setVisibility(View.GONE);
-//        mDbView.showPoints();
+        mDbView.showPoints();
         mDtView.afterEdit(isSave);
     }
 
@@ -857,7 +823,7 @@ public class WhiteBoardActivity extends BaseActivity implements View.OnClickList
      * 保存当前白板为图片
      */
     public void saveImage() {
-        String fileName = OperationUtils.getSavePath();
+        String fileName = StoreUtil.getPhotoSavePath();
         Log.e("gpy", fileName);
         File file = new File(fileName);
         try {
@@ -890,7 +856,14 @@ public class WhiteBoardActivity extends BaseActivity implements View.OnClickList
 
     @Override
     public void onBackPressed() {
+        final long mCurrentTime = System.currentTimeMillis();
+        if (mCurrentTime - this.mBackPressedTime > 1000) {
+            ToastUtils.showToast(this, R.string.app_logout);
+            this.mBackPressedTime = mCurrentTime;
+            return;
+        }
         super.onBackPressed();
+        System.exit(0);
     }
 
     @ReceiveEvents(name = Events.WHITE_BOARD_TEXT_EDIT)
