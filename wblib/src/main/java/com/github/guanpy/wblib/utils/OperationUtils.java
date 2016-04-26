@@ -112,7 +112,6 @@ public class OperationUtils {
         mCurrentPenSize = WhiteBoardVariable.PenSize.MIDDLE;
         mCurrentEraserSize = WhiteBoardVariable.EraserSize.MIDDLE;
         OperationUtils.getInstance().initDrawPointList();
-//        OperationUtils.getInstance().getWhiteBoardPoints(id);
     }
 
     /**

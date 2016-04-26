@@ -15,7 +15,6 @@ import android.widget.TextView;
 
 import com.example.gpy.whiteboard.R;
 import com.example.gpy.whiteboard.utils.StoreUtil;
-import com.example.gpy.whiteboard.utils.ToastUtils;
 import com.example.gpy.whiteboard.view.base.BaseActivity;
 import com.example.gpy.whiteboard.view.widget.floatingactionmenu.FloatingActionsMenu;
 import com.example.gpy.whiteboard.view.widget.floatingactionmenu.FloatingImageButton;
@@ -123,13 +122,11 @@ public class WhiteBoardActivity extends BaseActivity implements View.OnClickList
     @InjectView(R.id.ll_white_board_next)
     LinearLayout mLlWhiteBoardNext;
 
-    private long mBackPressedTime;
 
 
 
     @Override
     protected void afterCreate(Bundle bundle) {
-        OperationUtils.getInstance().init();
         initView();
         initEvent();
 
@@ -138,7 +135,7 @@ public class WhiteBoardActivity extends BaseActivity implements View.OnClickList
         changePenBack();
         changeColorBack();
         changeEraserBack();
-        ToolsOperation(WhiteBoardVariable.Operation.PEN_CLICK);
+        ToolsOperation(WhiteBoardVariable.Operation.PEN_NORMAL);
         mDbView.post(new Runnable() {
             @Override
             public void run() {
@@ -856,14 +853,8 @@ public class WhiteBoardActivity extends BaseActivity implements View.OnClickList
 
     @Override
     public void onBackPressed() {
-        final long mCurrentTime = System.currentTimeMillis();
-        if (mCurrentTime - this.mBackPressedTime > 1000) {
-            ToastUtils.showToast(this, R.string.app_logout);
-            this.mBackPressedTime = mCurrentTime;
-            return;
-        }
         super.onBackPressed();
-        System.exit(0);
+
     }
 
     @ReceiveEvents(name = Events.WHITE_BOARD_TEXT_EDIT)

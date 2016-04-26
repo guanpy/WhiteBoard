@@ -33,21 +33,32 @@ import java.util.UUID;
 public class StoreUtil {
     private static final String TAG = "StoreUtil";
     private static final String CHARSET = "UTF-8";
+    public static final String CACHE_DIR = "WhiteBoard";
+    private static final String CACHE_DIR_PHOTO = "photo";
+    private static final String PHOTO_FORMAT_PNG = ".png";
+    private static final String CACHE_DIR_WB = "wb";
+    private static final String WB_FORMAT = ".wb";
 
     /**
      * 获取保存路径
      */
     public static String getPhotoSavePath() {
-        return SdCardStatus.getDefaulstCacheDirInSdCard() + "/photos/" + UUID.randomUUID().toString() + ".png";
+        return getPhotoPath() + File.separator + UUID.randomUUID().toString() + PHOTO_FORMAT_PNG;
     }
 
+    public static String getPhotoPath() {
+        return SdCardStatus.getDefaulstCacheDirInSdCard() + File.separator + CACHE_DIR_PHOTO;
+    }
     /**
      * 获取保存路径
      */
     public static String getWbSavePath() {
-        return SdCardStatus.getDefaulstCacheDirInSdCard() + "/wb/" + UUID.randomUUID().toString() + ".wb";
+        return getWbPath() + File.separator + UUID.randomUUID().toString() + WB_FORMAT;
     }
 
+    public static String getWbPath() {
+        return SdCardStatus.getDefaulstCacheDirInSdCard() + File.separator + CACHE_DIR_WB;
+    }
     /**
      * 存储白板集
      */
