@@ -76,7 +76,6 @@ public class StoreUtil {
             }
         }
         String strJson = new Gson().toJson(whiteBoardPoints);
-        Log.d("gpy", "存储长度：" + strJson.length() + "字符：" + strJson);
         StoreUtil.write(strJson, getWbSavePath());
         convertWhiteBoardPoints(whiteBoardPoints);
         OperationUtils.getInstance().setWhiteBoardPoints(whiteBoardPoints);
@@ -89,7 +88,6 @@ public class StoreUtil {
     public static void readWhiteBoardPoints(String filePath) {
         String strJson = StoreUtil.read(filePath);
         if (!TextUtils.isEmpty(strJson)) {
-            Log.d("gpy", "存储长度：" + strJson.length() + " 字符：" + strJson);
             WhiteBoardPoints whiteBoardPoints = new Gson().fromJson(strJson, WhiteBoardPoints.class);
             convertWhiteBoardPoints(whiteBoardPoints);
             OperationUtils.getInstance().setWhiteBoardPoints(whiteBoardPoints);

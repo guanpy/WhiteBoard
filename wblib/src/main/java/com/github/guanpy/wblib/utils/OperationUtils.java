@@ -39,6 +39,10 @@ public class OperationUtils {
      */
     public int mCurrentIndex = 0;
     /**
+     * 每次操作的唯一标识
+     */
+    private long markId = 0;
+    /**
      * 当前按钮点击
      */
     public int mCurrentOPerationPen = WhiteBoardVariable.Operation.PEN_CLICK;
@@ -58,10 +62,6 @@ public class OperationUtils {
      * 当前绘画类型：笔或者文字等
      */
     public int mCurrentDrawType = DRAW_PEN;
-    /**
-     * 每次操作的唯一标识
-     */
-    private long markId = 0;
 
     /**
      * 当前颜色
@@ -102,12 +102,12 @@ public class OperationUtils {
     public void init() {
         DISABLE = true;
         mCurrentIndex = 0;
+        markId = 0;
         mCurrentOPerationPen = WhiteBoardVariable.Operation.PEN_NORMAL;
         mCurrentOPerationColor = WhiteBoardVariable.Operation.COLOR_NORMAL;
         mCurrentOPerationText = WhiteBoardVariable.Operation.TEXT_NORMAL;
         mCurrentOPerationEraser = WhiteBoardVariable.Operation.ERASER_NORMAL;
         mCurrentDrawType = DRAW_PEN;
-        markId = 0;
         mCurrentColor = WhiteBoardVariable.Color.ORANGE;
         mCurrentPenSize = WhiteBoardVariable.PenSize.MIDDLE;
         mCurrentEraserSize = WhiteBoardVariable.EraserSize.MIDDLE;
@@ -135,7 +135,7 @@ public class OperationUtils {
     }
 
     /**
-     * 返回指定白板的操作集
+     * 返回指定白板的操作集大小
      */
     public int getDrawPointSize() {
         if (mWhiteBoardPoints != null && null != mWhiteBoardPoints.getWhiteBoardPoints()) {

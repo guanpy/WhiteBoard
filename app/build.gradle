@@ -23,7 +23,6 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile project(':wblib')
     compile 'com.android.support:appcompat-v7:23.1.1'
-    compile 'com.android.support:recyclerview-v7:23.1.1'
     compile'com.squareup.retrofit:converter-jackson:1.9.0'
     compile 'com.jakewharton:butterknife:6.1.0'
 }
